@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ProductController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Laravel\Fortify\Features;
@@ -15,8 +16,6 @@ Route::get('dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
-Route::get('/products', function () {
-    return Inertia::render('products/Products');
-})->middleware(['auth', 'verified']);
+Route::resource('/products', ProductController::class)->middleware(['auth', 'verified']);
 
 require __DIR__.'/settings.php';

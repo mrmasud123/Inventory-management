@@ -25,7 +25,6 @@ class Product extends Model
     ];
 
 
-    // helper for full url
     public function getThumbnailUrlAttribute(): ?string
     {
         if (! $this->thumbnail_path) {
